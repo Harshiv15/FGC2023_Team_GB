@@ -14,6 +14,7 @@
 // Include common definitions from above.
 apply from: '../build.common.gradle'
 apply from: '../build.dependencies.gradle'
+apply plugin: 'kotlin-android'
 
 android {
     namespace = 'org.firstinspires.ftc.teamcode'
@@ -32,10 +33,15 @@ repositories {
 dependencies {
     implementation project(':FtcRobotController')
     annotationProcessor files('lib/OpModeAnnotationProcessor.jar')
+    annotationProcessor "com.github.amarcolini.joos.command:annotation:0.4.8"
 
     implementation 'com.acmerobotics.dashboard:dashboard:0.4.9'
     implementation 'com.acmerobotics.roadrunner:core:1.0.0-beta1'
     implementation 'com.acmerobotics.roadrunner:actions:1.0.0-beta1'
+    implementation 'org.ftclib.ftclib:core:2.1.1' // core
+
+    api 'org.openftc:easyopencv:1.7.0'
+    implementation 'org.openftc:apriltag:2.0.0'
 
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.7'
 }
